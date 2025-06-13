@@ -25,34 +25,34 @@ function postCadastrarLivro(req, res){
 function validarCadastroLivro(dados_livro){
     let campos_invalidos = []
     
-    // if(dados_livro.titulo.length == 0){
-    //     form_invalido = true;
-    //     campos_invalidos.push("Titulo");
-    // }
-    // if(dados_livro.isbn.length == 0){
-    //     form_invalido = true;
-    //     campos_invalidos.push("ISBN");
-    // }
-    // if(dados_livro.autor.length == 0){
-    //     form_invalido = true;
-    //     campos_invalidos.push("Autor");
-    // }
-    // if(dados_livro.editora.length == 0){
-    //     form_invalido = true;
-    //     campos_invalidos.push("Editora");
-    // }
-    // if(dados_livro.ano.length == 0){
-    //     form_invalido = true;
-    //     campos_invalidos.push("Ano");
-    // }
-    // if(dados_livro.genero.length == 0){
-    //     form_invalido = true;
-    //     campos_invalidos.push("Gênero");
-    // }
-    // if(dados_livro.qtd_estoque.length == 0){
-    //     form_invalido = true;
-    //     campos_invalidos.push("Quantidade no estoque");
-    // }
+    if(dados_livro.titulo.length == 0){
+        form_invalido = true;
+        campos_invalidos.push("Titulo");
+    }
+    if(dados_livro.isbn.length == 0){
+        form_invalido = true;
+        campos_invalidos.push("ISBN");
+    }
+    if(dados_livro.autor.length == 0){
+        form_invalido = true;
+        campos_invalidos.push("Autor");
+    }
+    if(dados_livro.editora.length == 0){
+        form_invalido = true;
+        campos_invalidos.push("Editora");
+    }
+    if(dados_livro.ano.length == 0){
+        form_invalido = true;
+        campos_invalidos.push("Ano");
+    }
+    if(dados_livro.genero.length == 0){
+        form_invalido = true;
+        campos_invalidos.push("Gênero");
+    }
+    if(dados_livro.qtd_estoque.length == 0){
+        form_invalido = true;
+        campos_invalidos.push("Quantidade no estoque");
+    }
 
     return campos_invalidos
 }
