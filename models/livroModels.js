@@ -21,11 +21,11 @@ const Livros = db.define('livros', {
         allowNull: false
     },
     editora: {
-        type: Sequelize.DATE,
+        type: Sequelize.STRING,
         allowNull: false
     },
     ano: {
-        type: Sequelize.STRING,
+        type: Sequelize.DATE,
         allowNull: false
     },
     genero: {
@@ -33,7 +33,7 @@ const Livros = db.define('livros', {
         allowNull: false
     },
     qtd_estoque: {
-        type: Sequelize.STRING,
+        type: Sequelize.INTEGER,
         allowNull: false
     },
     
