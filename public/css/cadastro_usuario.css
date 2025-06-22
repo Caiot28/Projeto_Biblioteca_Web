@@ -1,0 +1,49 @@
+/* Fundo da página */
+.bg-bege {
+  background-color: #E0DCC5;
+}
+
+/* Estilo da navbar e do rodapé */
+.bg-marrom {
+  background-color: #5c4434;
+}
+.text-marrom {
+  color: #5c4434;
+}
+
+/* Links */
+.link-marrom {
+  color: #5c4434;
+  text-decoration: none;
+}
+.link-marrom:hover {
+  text-decoration: underline;
+}
+
+/* Botão personalizado */
+.btn-marrom {
+  background-color: #5c4434;
+  color: white;
+  font-weight: 600;
+  padding: 10px 25px;
+  border: none;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+.btn-marrom:hover {
+  background-color: #463427;
+  color: white;
+}
+
+/* Formulário */
+form .form-control {
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+/* Card branco com sombra */
+.card {
+  background-color: #fffef9;
+  border-radius: 8px;
+  border: none;
+}

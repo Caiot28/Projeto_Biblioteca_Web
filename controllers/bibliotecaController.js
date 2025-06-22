@@ -8,6 +8,10 @@ function getCadastroLivroView(req, res){
     res.render('cadastro.html');
 }
 
+function getListarView(req, res){
+    res.render('listagem_livros.html');
+}
+
 function postCadastrarLivro(req, res){
     let dados_livro = req.body;
     let campos_invalidos = validarCadastroLivro(dados_livro);
@@ -60,5 +64,6 @@ function validarCadastroLivro(dados_livro){
 module.exports = {
     getIndexView,
     getCadastroLivroView,
-    postCadastrarLivro
+    postCadastrarLivro,
+    getListarView
 }

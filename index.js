@@ -8,8 +8,13 @@ app.set('view engine', 'html');
 app.set('views', __dirname + '/views');
 app.use(express.urlencoded({extended: true}));
 
+app.use(express.static('public'));
+
 const bibliotecaRouter = require('./routers/bibliotecaRouter');
+const usuarioRoutes = require('./routers/usuarioRouter');
+
 app.use('/', bibliotecaRouter);
+app.use('/', usuarioRoutes);
 
 db.sync();
 

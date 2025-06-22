@@ -1,0 +1,79 @@
+/* Cores principais */
+.bg-bege {
+  background-color: #E0DCC5;
+}
+
+.bg-marrom {
+  background-color: #5c4434;
+}
+
+.text-marrom {
+  color: #5c4434;
+}
+
+.btn-marrom {
+  background-color: #5c4434;
+  color: white;
+  padding: 8px 20px;
+  border: none;
+  border-radius: 5px;
+  font-weight: 600;
+  transition: background-color 0.3s;
+}
+
+.btn-marrom:hover {
+  background-color: #463427;
+}
+
+.link-marrom {
+  color: #5c4434;
+  text-decoration: none;
+}
+
+.link-marrom:hover {
+  text-decoration: underline;
+}
+
+/* Estilo da tabela */
+.table-marrom {
+  background-color: #5c4434;
+}
+
+.table th, .table td {
+  vertical-align: middle;
+}
+
+.table th {
+  background-color: #5c4434;
+  color: white;
+}
+
+.table td {
+  background-color: #f8f6ef;
+}
+
+/* Ícones */
+td a img {
+    transition: transform 0.2s;
+}
+
+td a img:hover {
+    transform: scale(1.1);
+    cursor: pointer;
+}
+
+
+/* Paginação */
+.pagination .page-link {
+  color: #5c4434;
+}
+
+.pagination .page-link:hover {
+  background-color: #5c4434;
+  color: white;
+}
+
+.pagination .active .page-link {
+  background-color: #5c4434;
+  border-color: #5c4434;
+}

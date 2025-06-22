@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <title>Cadastro de Usuário – Biblioteca Web UCB</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- CSS personalizado -->
+  <link rel="stylesheet" href="/css/cadastro_usuario.css">
+
+  <!-- Ícones -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+</head>
+<body class="bg-bege d-flex flex-column min-vh-100">
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-marrom px-4">
+    <a class="navbar-brand d-flex align-items-center" href="/">
+      <img src="/images/logo.png" alt="Logo" width="30" height="30" class="me-2">
+      Biblioteca Web UCB
+    </a>
+    <div class="ms-auto">
+      <a class="btn btn-outline-light d-flex align-items-center" href="/sair">
+        Sair <i class="ms-2 bi bi-box-arrow-right"></i>
+      </a>
+    </div>
+  </nav>
+
+  <!-- Conteúdo -->
+  <main class="flex-fill d-flex justify-content-center align-items-center py-4">
+    <div class="card shadow p-4 w-100" style="max-width: 700px;">
+      <h3 class="text-center mb-4 text-marrom">Cadastro de Usuário</h3>
+      <hr>
+
+      <!-- Alerta de formulário geral -->
+      {{#form_invalido}}
+      <div class="alert alert-danger">
+        <strong>Formulário inválido!</strong> Preencha todos os campos obrigatórios.
+      </div>
+      {{/form_invalido}}
+
+      <!-- Alerta de campos específicos -->
+      {{#campos_invalidos}}
+      <div class="alert alert-danger mt-1">
+        <strong>{{.}}</strong> inválido! Não pode ser vazio.
+      </div>
+      {{/campos_invalidos}}
+
+      <form action="/cadastrar_usuario" method="POST">
+        <div class="row mb-3">
+          <div class="col-md-6">
+            <label for="nome" class="form-label text-marrom">Nome Completo</label>
+            <input type="text" class="form-control" id="nome" name="nome" value="{{dados_usuario.nome}}" required>
+          </div>
+          <div class="col-md-6">
+            <label for="cpf" class="form-label text-marrom">CPF</label>
+            <input type="text" class="form-control" id="cpf" name="cpf" value="{{dados_usuario.cpf}}" required>
+          </div>
+        </div>
+
+        <div class="row mb-4">
+          <div class="col-md-6">
+            <label for="email" class="form-label text-marrom">E-mail Institucional</label>
+            <input type="email" class="form-control" id="email" name="email" value="{{dados_usuario.email}}" required>
+          </div>
+          <div class="col-md-6">
+            <label for="senha" class="form-label text-marrom">Senha</label>
+            <input type="password" class="form-control" id="senha" name="senha" value="{{dados_usuario.senha}}" required>
+          </div>
+        </div>
+
+        <div class="d-flex justify-content-center">
+          <button type="submit" class="btn btn-marrom text-white px-4">Cadastrar</button>
+        </div>
+      </form>
+
+      <div class="text-center mt-3">
+        <small>Já tem conta? <a href="/acessar" class="link-marrom">Ir para login</a></small>
+      </div>
+    </div>
+  </main>
+
+  <!-- Rodapé -->
+  <footer class="bg-marrom text-center text-white py-2 mt-auto">
+    <small>&copy;copyright grupo 5</small>
+  </footer>
+
+</body>
+</html>

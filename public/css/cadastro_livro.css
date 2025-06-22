@@ -1,0 +1,79 @@
+/* ----------- Cores de fundo e layout base ----------- */
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+/* Fundo geral da página */
+.bg-bege {
+  background-color: #E0DCC5;
+}
+
+/* Navbar e rodapé em marrom */
+.bg-marrom {
+  background-color: #5c4434;
+}
+
+.text-marrom {
+  color: #5c4434;
+}
+
+/* Links com cor marrom */
+.link-marrom {
+  color: #5c4434;
+  text-decoration: none;
+}
+.link-marrom:hover {
+  text-decoration: underline;
+}
+
+/* ----------- Botão personalizado ----------- */
+.btn-marrom {
+  background-color: #5c4434;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+}
+
+.btn-marrom:hover {
+  background-color: #463427;
+  color: white;
+}
+
+/* ----------- Formulários ----------- */
+form .form-label {
+  font-weight: 500;
+}
+
+form .form-control {
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+/* Caixa de alerta */
+.alert {
+  font-size: 0.95rem;
+}
+
+/* Card central do cadastro */
+.card {
+  background-color: #E0DCC5;
+  border: none;
+  border-radius: 8px;
+}
+
+/* Centralização com padding vertical */
+main {
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+
+/* Rodapé fixado no final mesmo com pouco conteúdo */
+footer {
+  margin-top: auto;
+  font-size: 0.9rem;
+}

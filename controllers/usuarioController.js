@@ -1,11 +1,15 @@
 const Usuario = require('../models/usuarioModel');
 
 function getCadastroView(req, res){
-    res.render('cadastro.html');
+    res.render('cadastro_usuario.html');
 }
 
 function getLoginView(req, res){
     res.render('login.html');
+}
+
+function getMenuView(req, res){
+    res.render('menu.html');
 }
 
 function postCadastrarUsuario(req, res){
@@ -55,6 +59,7 @@ function verificarAutenticacao(req, res, next){
 module.exports = {
     getCadastroView,
     getLoginView,
+    getMenuView,
     postCadastrarUsuario,
     postAutenticarUsuario,
     sair,

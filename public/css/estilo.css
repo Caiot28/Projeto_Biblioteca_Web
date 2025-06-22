@@ -1,0 +1,64 @@
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Faz o conteúdo crescer para ocupar espaço entre o header e o footer */
+main {
+  flex: 1;
+}
+
+/* Cor marrom personalizada para navbar e rodapé */
+.bg-marrom {
+  background-color: #5c4434;
+}
+
+/* Banner com imagem de fundo */
+.banner {
+  background: url('/images/biblioteca.png') no-repeat center center;
+  background-size: cover;
+  height: 80vh;
+  background-position: center;
+  flex-grow: 1;
+  padding: 0;
+  margin: 0;
+  min-height: calc(100vh - 56px); /* altura total - navbar */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+/* Fundo bege semi-transparente para o texto no centro */
+.fundo-texto {
+  background-color: #E0DCC5;
+  color: #333;
+  padding: 2rem;
+  border-radius: 10px;
+}
+
+h2, p{
+  color: #5c4434;
+}
+
+footer {
+  background-color: #5c4434;
+  color: white;
+  padding: 10px 0;
+  text-align: center;
+}
+
+/* Responsividade básica */
+@media (max-width: 768px) {
+  .banner {
+    height: 60vh;
+    padding: 20px;
+  }
+
+  .fundo-texto h2 {
+    font-size: 1.5rem;
+  }
+}
