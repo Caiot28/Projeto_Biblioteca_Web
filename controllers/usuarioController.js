@@ -9,7 +9,8 @@ function getLoginView(req, res){
 }
 
 function getMenuView(req, res){
-    res.render('menu.html');
+    const nomeUsuario = req.session.usuario?.nome || 'Usuário';
+    res.render('menu', { nomeUsuario });
 }
 
 function postCadastrarUsuario(req, res){
@@ -32,17 +33,12 @@ async function postAutenticarUsuario(req, res){
         console.log('USUÁRIO AUTENTICADO');
         req.session.autorizado = true;
         req.session.usuario = usuario;
-        res.redirect('/login');
+        res.redirect('/menu');
     }
     else{
         res.redirect('/acessar?erro_login=1');
     }
     
-}
-
-function sair(req, res){
-    req.session.destroy();
-    res.redirect('/acessar');
 }
 
 function verificarAutenticacao(req, res, next){
@@ -54,6 +50,16 @@ function verificarAutenticacao(req, res, next){
        console.log('usuário NÃO autorizado');
        res.redirect('/acessar');
    }
+}
+
+function sair(req, res) {
+  req.session.destroy((err) => {
+    if (err) {
+      console.error('Erro ao destruir a sessão:', err);
+      return res.status(500).send('Erro ao sair.');
+    }
+    res.redirect('/');
+  });
 }
 
 module.exports = {

@@ -1,22 +1,20 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
   <title>Cadastro de Usuário – Biblioteca Web UCB</title>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <!-- Bootstrap -->
+
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-
-  <!-- CSS personalizado -->
   <link rel="stylesheet" href="/css/cadastro_usuario.css">
-
-  <!-- Ícones -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+  <link rel="icon" href="/images/favicon.png" type="image/png">
 </head>
+
 <body class="bg-bege d-flex flex-column min-vh-100">
 
-  <!-- Navbar -->
   <nav class="navbar navbar-expand-lg navbar-dark bg-marrom px-4">
     <a class="navbar-brand d-flex align-items-center" href="/">
       <img src="/images/logo.png" alt="Logo" width="30" height="30" class="me-2">
@@ -68,7 +66,8 @@
           </div>
           <div class="col-md-6">
             <label for="senha" class="form-label text-marrom">Senha</label>
-            <input type="password" class="form-control" id="senha" name="senha" value="{{dados_usuario.senha}}" required>
+            <input type="password" class="form-control" id="senha" name="senha" value="{{dados_usuario.senha}}"
+              required>
           </div>
         </div>
 
@@ -89,4 +88,5 @@
   </footer>
 
 </body>
+
 </html>

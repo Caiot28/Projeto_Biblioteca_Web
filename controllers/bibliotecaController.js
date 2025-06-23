@@ -18,7 +18,7 @@ function postCadastrarLivro(req, res){
 
     if(campos_invalidos.length == 0){
         Livro.create(dados_livro).then(()=>{
-            res.redirect('/');
+            res.redirect('/listar');
         });
     }
     else{
