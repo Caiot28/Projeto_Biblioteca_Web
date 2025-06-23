@@ -8,6 +8,8 @@ router.get('/listar', bibliotecaController.getListarView);
 router.post('/cadastrar_livro', bibliotecaController.postCadastrarLivro);
 router.get('/editar_livro/:isbn', bibliotecaController.getEditarLivro);
 router.post('/editar_livro', bibliotecaController.postEditarLivro);
+router.get('/excluir_livro/:isbn', bibliotecaController.getExcluirLivro);
+
 
 
 module.exports = router;

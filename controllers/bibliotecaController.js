@@ -63,14 +63,14 @@ async function postEditarLivro(req, res){
 }
 
 function getExcluirLivro(req, res){
-    let id_agendamento = req.params.id;
-    AgendamentoConsulta.findOne({
+    let isbn_livro = req.params.isbn;
+    Livro.findOne({
         where:{
-            id: id_agendamento
+            isbn: isbn_livro
         }
     }).then((dados_livro)=>{
         dados_livro.destroy().then(()=>{
-            res.redirect('/agendamentos');
+            res.redirect('/listar');
         });
     }); 
 }
