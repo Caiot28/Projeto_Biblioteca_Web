@@ -40,11 +40,12 @@
 
       {{#campos_invalidos}}
       <div class="alert alert-danger mt-1">
-        <strong>{{.}}</strong> inválido! Não pode ser vazio.
+        <strong>{{.}}</strong>
       </div>
       {{/campos_invalidos}}
 
       <form action="/editar_livro" method="POST">
+        <input type="hidden" name="id" value="{{dados_livro.id}}">
         <div class="row mb-3">
           <div class="col-md-6">
             <label for="titulo" class="form-label text-marrom">Título:</label>

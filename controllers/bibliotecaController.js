@@ -14,9 +14,9 @@ function getListarView(req, res){
     })
 }
 
-function postCadastrarLivro(req, res){
+async function postCadastrarLivro(req, res){
     let dados_livro = req.body;
-    let campos_invalidos = validarCadastroLivro(dados_livro);
+    let campos_invalidos = await validarCadastroLivro(dados_livro);
 
     if(campos_invalidos.length == 0){
         Livro.create(dados_livro).then(()=>{
@@ -40,14 +40,15 @@ function getEditarLivro(req, res){
     
 }
 
-function postEditarLivro(req, res){
+async function postEditarLivro(req, res){
     let dados_livro = req.body;
-    let campos_invalidos = validarCadastroLivro(dados_livro);
+    let campos_invalidos = await validarCadastroLivro(dados_livro);
 
     if(campos_invalidos.length == 0){
-        Livro.findOne({
+        await Livro.findOne({
             where:{
-                isbn: dados_livro.isbn
+                //isbn: dados_livro.isbn
+                id: dados_livro.id
             }
         }).then((dados_cadastro)=>{
             dados_cadastro.update(dados_livro).then(()=>{
@@ -74,39 +75,50 @@ function getExcluirLivro(req, res){
     }); 
 }
 
-function validarCadastroLivro(dados_livro){
-    let campos_invalidos = []
-    
-    if(dados_livro.titulo.length == 0){
-        form_invalido = true;
-        campos_invalidos.push("Titulo");
+async function validarCadastroLivro(dados_livro) {
+    let campos_invalidos = [];
+
+    if (dados_livro.titulo.length == 0) {
+        campos_invalidos.push("Título inválido! Não pode ser vazio.");
     }
-    if(dados_livro.isbn.length == 0){
-        form_invalido = true;
-        campos_invalidos.push("ISBN");
+    if (dados_livro.isbn.length == 0) {
+        campos_invalidos.push("ISBN inválido! Não pode ser vazio.");
     }
-    if(dados_livro.autor.length == 0){
-        form_invalido = true;
-        campos_invalidos.push("Autor");
+    if (dados_livro.autor.length == 0) {
+        campos_invalidos.push("Autor inválido! Não pode ser vazio.");
     }
-    if(dados_livro.editora.length == 0){
-        form_invalido = true;
-        campos_invalidos.push("Editora");
+    if (dados_livro.editora.length == 0) {
+        campos_invalidos.push("Editora inválido! Não pode ser vazio.");
     }
-    if(dados_livro.ano.length == 0){
-        form_invalido = true;
-        campos_invalidos.push("Ano");
+    if (dados_livro.ano.length == 0) {
+        campos_invalidos.push("Ano inválido! Não pode ser vazio.");
     }
-    if(dados_livro.genero.length == 0){
-        form_invalido = true;
-        campos_invalidos.push("Gênero");
+    if (dados_livro.genero.length == 0) {
+        campos_invalidos.push("Gênero inválido! Não pode ser vazio.");
     }
-    if(dados_livro.qtd_estoque.length == 0){
-        form_invalido = true;
-        campos_invalidos.push("Quantidade no estoque");
+    if (dados_livro.qtd_estoque == null || dados_livro.qtd_estoque == undefined || dados_livro.qtd_estoque == '') {
+        campos_invalidos.push("Quantidade no estoque inválido! Não pode ser vazio.");
+    }
+    if (dados_livro.isbn.length > 0) { 
+        try {
+            const livroExistente = await Livro.findOne({
+                where: {
+                    isbn: dados_livro.isbn
+                }
+            });
+ 
+            if (livroExistente) {  
+                if (dados_livro.id != livroExistente.id) {
+                    campos_invalidos.push("ISBN já cadastrado");
+                }
+            }
+        } catch (error) {
+            console.error("Erro ao verificar ISBN no banco de dados:", error);
+            campos_invalidos.push("Erro na validação do ISBN");
+        }
     }
 
-    return campos_invalidos
+    return campos_invalidos;
 }
 
 module.exports = {
