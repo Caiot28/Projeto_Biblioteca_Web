@@ -9,7 +9,9 @@ function getCadastroLivroView(req, res){
 }
 
 function getListarView(req, res){
-    res.render('listagem_livros.html');
+    Livro.findAll().then((livros)=>{
+        res.render('listagem_livros.html', {livros});
+    })
 }
 
 function postCadastrarLivro(req, res){
