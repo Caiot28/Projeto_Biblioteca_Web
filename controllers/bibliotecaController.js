@@ -28,6 +28,52 @@ function postCadastrarLivro(req, res){
     }
 }
 
+function getEditarLivro(req, res){
+    let isbn_livro = req.params.isbn;
+    Livro.findOne({
+        where:{
+            isbn: isbn_livro
+        }
+    }).then((dados_livro)=>{
+        res.render('editar_livro.html', {dados_livro});
+    }); 
+    
+}
+
+function postEditarLivro(req, res){
+    let dados_livro = req.body;
+    let campos_invalidos = validarCadastroLivro(dados_livro);
+
+    if(campos_invalidos.length == 0){
+        Livro.findOne({
+            where:{
+                isbn: dados_livro.isbn
+            }
+        }).then((dados_cadastro)=>{
+            dados_cadastro.update(dados_livro).then(()=>{
+                res.redirect('/listar');
+            });
+            
+        }); 
+    }
+    else{
+        res.render('editar_livro.html', {campos_invalidos, dados_livro});
+    }
+}
+
+function getExcluirLivro(req, res){
+    let id_agendamento = req.params.id;
+    AgendamentoConsulta.findOne({
+        where:{
+            id: id_agendamento
+        }
+    }).then((dados_livro)=>{
+        dados_livro.destroy().then(()=>{
+            res.redirect('/agendamentos');
+        });
+    }); 
+}
+
 function validarCadastroLivro(dados_livro){
     let campos_invalidos = []
     
@@ -67,5 +113,8 @@ module.exports = {
     getIndexView,
     getCadastroLivroView,
     postCadastrarLivro,
-    getListarView
+    getListarView,
+    postEditarLivro,
+    getExcluirLivro,
+    getEditarLivro
 }

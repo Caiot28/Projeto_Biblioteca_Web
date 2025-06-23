@@ -6,4 +6,8 @@ router.get('/', bibliotecaController.getIndexView);
 router.get('/cadastro', bibliotecaController.getCadastroLivroView);
 router.get('/listar', bibliotecaController.getListarView);
 router.post('/cadastrar_livro', bibliotecaController.postCadastrarLivro);
+router.get('/editar_livro/:isbn', bibliotecaController.getEditarLivro);
+router.post('/editar_livro', bibliotecaController.postEditarLivro);
+
+
 module.exports = router;
