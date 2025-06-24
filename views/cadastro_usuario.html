@@ -27,20 +27,17 @@
     </div>
   </nav>
 
-  <!-- Conteúdo -->
   <main class="flex-fill d-flex justify-content-center align-items-center py-4">
     <div class="card shadow p-4 w-100" style="max-width: 700px;">
       <h3 class="text-center mb-4 text-marrom">Cadastro de Usuário</h3>
       <hr>
 
-      <!-- Alerta de formulário geral -->
       {{#form_invalido}}
       <div class="alert alert-danger">
         <strong>Formulário inválido!</strong> Preencha todos os campos obrigatórios.
       </div>
       {{/form_invalido}}
 
-      <!-- Alerta de campos específicos -->
       {{#campos_invalidos}}
       <div class="alert alert-danger mt-1">
         <strong>{{.}}</strong> inválido! Não pode ser vazio.
@@ -82,7 +79,6 @@
     </div>
   </main>
 
-  <!-- Rodapé -->
   <footer class="bg-marrom text-center text-white py-2 mt-auto">
     <small>&copy;copyright grupo 5</small>
   </footer>

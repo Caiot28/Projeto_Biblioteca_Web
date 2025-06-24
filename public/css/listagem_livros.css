@@ -39,7 +39,8 @@
   background-color: #5c4434;
 }
 
-.table th, .table td {
+.table th,
+.table td {
   vertical-align: middle;
 }
 
@@ -54,14 +55,18 @@
 
 /* Ícones */
 td a img {
-    transition: transform 0.2s;
+  transition: transform 0.2s;
 }
 
 td a img:hover {
-    transform: scale(1.1);
-    cursor: pointer;
+  transform: scale(1.1);
+  cursor: pointer;
 }
 
+td a{
+  text-decoration: none !important;
+  color: inherit !important;
+}
 
 /* Paginação */
 .pagination .page-link {

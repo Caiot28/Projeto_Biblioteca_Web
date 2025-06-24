@@ -14,7 +14,6 @@
 
 <body class="bg-bege d-flex flex-column min-vh-100">
 
-    <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-marrom px-4">
         <a class="navbar-brand d-flex align-items-center" href="/menu">
             <img src="/images/logo.png" alt="Logo" width="30" height="30" class="me-2">
@@ -27,18 +26,15 @@
         </div>
     </nav>
 
-    <!-- Conteúdo -->
     <main class="flex-fill container my-4">
         <h2 class="text-center text-marrom mb-4">Livros Cadastrados</h2>
 
-        <!-- Formulário de busca -->
         <form class="d-flex justify-content-center mb-4" action="/buscar" method="GET">
             <label for="isbn" class="me-2 fw-bold">ISBN</label>
             <input type="text" id="isbn" name="isbn" class="form-control w-auto me-2" placeholder="Digite o ISBN">
             <button type="submit" class="btn btn-marrom">Buscar</button>
         </form>
 
-        <!-- Tabela de livros -->
         <div class="table-responsive">
             <table class="table table-bordered align-middle text-center">
                 <thead class="table-marrom text-white">
@@ -50,29 +46,27 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <!-- Exemplo de linha -->
+
                     {{#livros}}
                     <tr>
                         <td>{{isbn}}</td>
                         <td>{{titulo}}</td>
                         <td>{{autor}}</td>
                         <td>
-                            <a href="/editar_livro/{{isbn}}" class="me-3">
+                            <a href="/editar_livro/{{isbn}}" class="me-2">
                                 <img src="/images/editar.png" alt="Editar" width="24" height="24">
                             </a>
                             <a href="/excluir_livro/{{isbn}}" onclick="return confirm('Deseja excluir este livro?')">
                                 <img src="/images/excluir.png" alt="Excluir" width="24" height="24">
                             </a>
                         </td>
-
                     </tr>
                     {{/livros}}
-                    <!-- Repetir linhas dinamicamente com Mustache -->
+
                 </tbody>
             </table>
         </div>
 
-        <!-- Paginação (exemplo visual) -->
         <nav>
             <ul class="pagination justify-content-center">
                 <li class="page-item disabled"><a class="page-link">Anterior</a></li>
@@ -82,9 +76,15 @@
                 <li class="page-item"><a class="page-link" href="#">Próximo</a></li>
             </ul>
         </nav>
+
+        <div class="text-center mt-4">
+            <a href="/menu" class="btn btn-outline-marrom">
+                <i class="bi bi-arrow-left me-2"></i> Voltar ao Menu
+            </a>
+        </div>
+
     </main>
 
-    <!-- Rodapé -->
     <footer class="bg-marrom text-center text-white py-2 mt-auto">
         <small>&copy;copyright grupo 5</small>
     </footer>
