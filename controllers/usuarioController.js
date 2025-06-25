@@ -5,7 +5,12 @@ function getCadastroView(req, res){
 }
 
 function getLoginView(req, res){
-    res.render('login.html');
+    const { erro_login, cadastro_sucesso } = req.query;
+
+    res.render('login.html', {
+        erro_login: erro_login === '1',
+        cadastro_sucesso: cadastro_sucesso === '1',
+    });
 }
 
 function getMenuView(req, res){
@@ -16,7 +21,7 @@ function getMenuView(req, res){
 function postCadastrarUsuario(req, res){
     const dados_usuario = req.body;
     Usuario.create(dados_usuario).then(()=>{
-        res.redirect('/acessar');
+        res.redirect('/acessar?cadastro_sucesso=1');
     });
 }
 

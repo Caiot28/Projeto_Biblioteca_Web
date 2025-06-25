@@ -30,6 +30,17 @@
         <div class="card shadow p-4" style="width: 100%; max-width: 400px;">
             <h3 class="text-center mb-3 text-marrom">Área Restrita</h3>
             <hr />
+            {{#erro_login}}
+            <div class="alert alert-danger" role="alert">
+                Email ou senha inválido(s)
+            </div>
+            {{/erro_login}}
+
+            {{#cadastro_sucesso}}
+            <div class="alert alert-success" role="alert">
+                Conta cadastrada com sucesso
+            </div>
+            {{/cadastro_sucesso}}
             <form action="/autenticar" method="POST">
                 <div class="mb-3">
                     <label for="email" class="form-label text-marrom">E-mail Institucional</label>
