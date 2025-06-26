@@ -35,6 +35,12 @@
             <button type="submit" class="btn btn-marrom">Buscar</button>
         </form>
 
+        {{#mensagem}}
+        <div class="alert alert-warning">
+            {{mensagem}}
+        </div>
+        {{/mensagem}}
+
         <div class="table-responsive">
             <table class="table table-bordered align-middle text-center">
                 <thead class="table-marrom text-white">
@@ -67,7 +73,7 @@
             </table>
         </div>
 
-        <nav>
+        <!-- <nav>
             <ul class="pagination justify-content-center">
                 <li class="page-item disabled"><a class="page-link">Anterior</a></li>
                 <li class="page-item active"><a class="page-link" href="#">1</a></li>
@@ -75,7 +81,7 @@
                 <li class="page-item"><a class="page-link" href="#">3</a></li>
                 <li class="page-item"><a class="page-link" href="#">Próximo</a></li>
             </ul>
-        </nav>
+        </nav> -->
 
         <div class="text-center mt-4">
             <a href="/menu" class="btn btn-outline-marrom">

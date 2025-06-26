@@ -1,4 +1,5 @@
 const Livro = require('../models/livroModels');
+const { format, addMinutes } = require('date-fns');
 
 function getIndexView(req, res) {
     res.render('index.html');
@@ -35,7 +36,10 @@ function getEditarLivro(req, res) {
             isbn: isbn_livro
         }
     }).then((dados_livro) => {
-        res.render('editar_livro.html', { dados_livro });
+        const data_offset = new Date().getTimezoneOffset();
+        const ano_formatado = format(addMinutes(dados_livro.ano, data_offset + 10), 'yyyy-MM-dd');
+
+        res.render('editar_livro.html', { dados_livro, ano_formatado });
     });
 
 }
@@ -125,10 +129,10 @@ async function buscarPorIsbn(req, res) {
     const isbnBuscado = req.query.isbn;
 
     try {
-        const livro = await Livro.findOne({ where: { isbn: isbnBuscado } });
+        const livro = isbnBuscado ? await Livro.findOne({ where: { isbn: isbnBuscado } }) : await Livro.findAll();
 
         if (livro) {
-            res.render('listagem_livros', { livros: [livro] }); 
+            res.render('listagem_livros', { livros: livro.length ? livro : [livro] }); 
         } else {
             res.render('listagem_livros', { livros: [], mensagem: 'Nenhum livro encontrado com este ISBN.' });
         }
