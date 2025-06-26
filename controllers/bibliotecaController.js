@@ -10,8 +10,12 @@ function getCadastroLivroView(req, res) {
 }
 
 function getListarView(req, res) {
+    const editado = req.query.editado === '1';
+    const deletado = req.query.deletado === '1';
+    const cadastrado = req.query.cadastrado === '1';
+
     Livro.findAll().then((livros) => {
-        res.render('listagem_livros.html', { livros });
+        res.render('listagem_livros.html', { livros, editado, deletado, cadastrado });
     })
 }
 
@@ -21,7 +25,7 @@ async function postCadastrarLivro(req, res) {
 
     if (campos_invalidos.length == 0) {
         Livro.create(dados_livro).then(() => {
-            res.redirect('/listar');
+            res.redirect('/listar?cadastrado=1');
         });
     }
     else {
@@ -56,7 +60,7 @@ async function postEditarLivro(req, res) {
             }
         }).then((dados_cadastro) => {
             dados_cadastro.update(dados_livro).then(() => {
-                res.redirect('/listar');
+                res.redirect('/listar?editado=1');
             });
 
         });
@@ -74,7 +78,7 @@ function getExcluirLivro(req, res) {
         }
     }).then((dados_livro) => {
         dados_livro.destroy().then(() => {
-            res.redirect('/listar');
+            res.redirect('/listar?deletado=1');
         });
     });
 }
